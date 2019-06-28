@@ -108,21 +108,19 @@
         <div class="sk-serial-item sk-dashed-wrapped">
           <div
             class="sk-label"
-            sk-data-tooltip="ColumnTransformer(transformers=[(\'num1\',&#xa;                                 Pipeline(steps=[(\'imputer\',&#xa;                                                  SimpleImputer(strategy=\'median\'))]),&#xa;                                 [\'age\', \'fare\']),&#xa;                                (\'num2\',&#xa;                                 Pipeline(steps=[(\'imputer\',&#xa;                                                  SimpleImputer(strategy=\'most_frequent\')),&#xa;                                                 (\'scaler\',&#xa;                                                  StandardScaler(with_std=False)),&#xa;                                                 (\'feats\',&#xa;                                                  FeatureUnion(transformer_list=[(\'pca\',&#xa;                                                                                  PCA(n_components=1)),&#xa;                                                                                 (\'svd\',&#xa;                                                                                  Pipeline(steps=[(\'tsvd1\',&#xa;                                                                                                   TruncatedSVD()),&#xa;                                                                                                  (\'select\',&#xa;                                                                                                   SelectPercentile())]))]))]),&#xa;                                 [\'age\', \'fare\']),&#xa;                                (\'cat\',&#xa;                                 Pipeline(steps=[(\'imputer\',&#xa;                                                  SimpleImputer(missing_values=\'missing\',&#xa;                                                                strategy=\'constant\')),&#xa;                                                 (\'onehot\',&#xa;                                                  OneHotEncoder(drop=\'first\',&#xa;                                                                handle_unknown=\'ignore\'))]),&#xa;                                 [\'embarked\', \'sex\', \'pclass\'])])"
+            sk-data-tooltip="ColumnTransformer(transformers=[('num1',&#xa;                                 Pipeline(steps=[('imputer',&#xa;                                                  SimpleImputer(strategy='median'))]),&#xa;                                 ['age', 'fare']),&#xa;                                ('num2',&#xa;                                 Pipeline(steps=[('imputer',&#xa;                                                  SimpleImputer(strategy='most_frequent')),&#xa;                                                 ('scaler',&#xa;                                                  StandardScaler(with_std=False)),&#xa;                                                 ('feats',&#xa;                                                  FeatureUnion(transformer_list=[('pca',&#xa;                                                                                  PCA(n_components=1)),&#xa;                                                                                 ('svd',&#xa;                                                                                  Pipeline(steps=[('tsvd1',&#xa;                                                                                                   TruncatedSVD()),&#xa;                                                                                                  ('select',&#xa;                                                                                                   SelectPercentile())]))]))]),&#xa;                                 ['age', 'fare']),&#xa;                                ('cat',&#xa;                                 Pipeline(steps=[('imputer',&#xa;                                                  SimpleImputer(missing_values='missing',&#xa;                                                                strategy='constant')),&#xa;                                                 ('onehot',&#xa;                                                  OneHotEncoder(drop='first',&#xa;                                                                handle_unknown='ignore'))]),&#xa;                                 ['embarked', 'sex', 'pclass'])])"
           >
             preprocessor
           </div>
           <div class="sk-parallel">
             <div class="sk-parallel-item">
-              <div class="sk-label" sk-data-tooltip="[\'age\', \'fare\']">
-                num1
-              </div>
+              <div class="sk-label" sk-data-tooltip="['age', 'fare']">num1</div>
               <div class="sk-serial">
                 <div class="sk-serial">
                   <div class="sk-serial-item">
                     <div
                       class="sk-estimator"
-                      sk-data-tooltip="SimpleImputer(strategy=\'median\')"
+                      sk-data-tooltip="SimpleImputer(strategy='median')"
                     >
                       SimpleImputer
                     </div>
@@ -131,15 +129,13 @@
               </div>
             </div>
             <div class="sk-parallel-item">
-              <div class="sk-label" sk-data-tooltip="[\'age\', \'fare\']">
-                num2
-              </div>
+              <div class="sk-label" sk-data-tooltip="['age', 'fare']">num2</div>
               <div class="sk-serial">
                 <div class="sk-serial">
                   <div class="sk-serial-item">
                     <div
                       class="sk-estimator"
-                      sk-data-tooltip="SimpleImputer(strategy=\'most_frequent\')"
+                      sk-data-tooltip="SimpleImputer(strategy='most_frequent')"
                     >
                       SimpleImputer
                     </div>
@@ -155,7 +151,7 @@
                   <div class="sk-serial-item sk-dashed-wrapped">
                     <div
                       class="sk-label"
-                      sk-data-tooltip="FeatureUnion(transformer_list=[(\'pca\', PCA(n_components=1)),&#xa;                               (\'svd\',&#xa;                                Pipeline(steps=[(\'tsvd1\', TruncatedSVD()),&#xa;                                                (\'select\',&#xa;                                                 SelectPercentile())]))])"
+                      sk-data-tooltip="FeatureUnion(transformer_list=[('pca', PCA(n_components=1)),&#xa;                               ('svd',&#xa;                                Pipeline(steps=[('tsvd1', TruncatedSVD()),&#xa;                                                ('select',&#xa;                                                 SelectPercentile())]))])"
                     >
                       feats
                     </div>
@@ -181,7 +177,7 @@
                       <div class="sk-parallel-item">
                         <div
                           class="sk-label"
-                          sk-data-tooltip="Pipeline(steps=[(\'tsvd1\', TruncatedSVD()), (\'select\', SelectPercentile())])"
+                          sk-data-tooltip="Pipeline(steps=[('tsvd1', TruncatedSVD()), ('select', SelectPercentile())])"
                         >
                           svd
                         </div>
@@ -214,7 +210,7 @@
             <div class="sk-parallel-item">
               <div
                 class="sk-label"
-                sk-data-tooltip="[\'embarked\', \'sex\', \'pclass\']"
+                sk-data-tooltip="['embarked', 'sex', 'pclass']"
               >
                 cat
               </div>
@@ -223,7 +219,7 @@
                   <div class="sk-serial-item">
                     <div
                       class="sk-estimator"
-                      sk-data-tooltip="SimpleImputer(missing_values=\'missing\', strategy=\'constant\')"
+                      sk-data-tooltip="SimpleImputer(missing_values='missing', strategy='constant')"
                     >
                       SimpleImputer
                     </div>
@@ -231,7 +227,7 @@
                   <div class="sk-serial-item">
                     <div
                       class="sk-estimator"
-                      sk-data-tooltip="OneHotEncoder(drop=\'first\', handle_unknown=\'ignore\')"
+                      sk-data-tooltip="OneHotEncoder(drop='first', handle_unknown='ignore')"
                     >
                       OneHotEncoder
                     </div>
@@ -244,7 +240,7 @@
         <div class="sk-serial-item sk-dashed-wrapped">
           <div
             class="sk-label"
-            sk-data-tooltip="FeatureUnion(transformer_list=[(\'pca\',&#xa;                                PCA(n_components=1, svd_solver=\'full\',&#xa;                                    whiten=True)),&#xa;                               (\'svd\', TruncatedSVD(n_iter=10))])"
+            sk-data-tooltip="FeatureUnion(transformer_list=[('pca',&#xa;                                PCA(n_components=1, svd_solver='full',&#xa;                                    whiten=True)),&#xa;                               ('svd', TruncatedSVD(n_iter=10))])"
           >
             feat_u
           </div>
@@ -252,7 +248,7 @@
             <div class="sk-parallel-item">
               <div
                 class="sk-label"
-                sk-data-tooltip="PCA(n_components=1, svd_solver=\'full\', whiten=True)"
+                sk-data-tooltip="PCA(n_components=1, svd_solver='full', whiten=True)"
               >
                 pca
               </div>
@@ -260,7 +256,7 @@
                 <div class="sk-serial-item">
                   <div
                     class="sk-estimator"
-                    sk-data-tooltip="PCA(n_components=1, svd_solver=\'full\', whiten=True)"
+                    sk-data-tooltip="PCA(n_components=1, svd_solver='full', whiten=True)"
                   >
                     PCA
                   </div>
@@ -287,7 +283,7 @@
         <div class="sk-serial-item sk-dashed-wrapped">
           <div
             class="sk-label"
-            sk-data-tooltip="VotingClassifier(estimators=[(\'lr\',&#xa;                              LogisticRegression(max_iter=200,&#xa;                                                 multi_class=\'multinomial\',&#xa;                                                 random_state=1)),&#xa;                             (\'rf\',&#xa;                              RandomForestClassifier(max_depth=8,&#xa;                                                     n_estimators=50, n_jobs=3,&#xa;                                                     oob_score=True,&#xa;                                                     random_state=1,&#xa;                                                     warm_start=True)),&#xa;                             (\'gnb\', GaussianNB())])"
+            sk-data-tooltip="VotingClassifier(estimators=[('lr',&#xa;                              LogisticRegression(max_iter=200,&#xa;                                                 multi_class='multinomial',&#xa;                                                 random_state=1)),&#xa;                             ('rf',&#xa;                              RandomForestClassifier(max_depth=8,&#xa;                                                     n_estimators=50, n_jobs=3,&#xa;                                                     oob_score=True,&#xa;                                                     random_state=1,&#xa;                                                     warm_start=True)),&#xa;                             ('gnb', GaussianNB())])"
           >
             classifier
           </div>
@@ -295,7 +291,7 @@
             <div class="sk-parallel-item">
               <div
                 class="sk-label"
-                sk-data-tooltip="LogisticRegression(max_iter=200, multi_class=\'multinomial\', random_state=1)"
+                sk-data-tooltip="LogisticRegression(max_iter=200, multi_class='multinomial', random_state=1)"
               >
                 lr
               </div>
@@ -303,7 +299,7 @@
                 <div class="sk-serial-item">
                   <div
                     class="sk-estimator"
-                    sk-data-tooltip="LogisticRegression(max_iter=200, multi_class=\'multinomial\', random_state=1)"
+                    sk-data-tooltip="LogisticRegression(max_iter=200, multi_class='multinomial', random_state=1)"
                   >
                     LogisticRegression
                   </div>
@@ -343,12 +339,12 @@
       </div>
     </div>
     <div class="sk-final-spacer">
-      (\'classifier\', VotingClassifier(estimators=[(\'lr\',&#xa;
-      LogisticRegression(max_iter=200,&#xa; multi_class=\'multinomial\',&#xa;
-      random_state=1)),&#xa; (\'rf\',&#xa;
+      ('classifier', VotingClassifier(estimators=[('lr',&#xa;
+      LogisticRegression(max_iter=200,&#xa; multi_class='multinomial',&#xa;
+      random_state=1)),&#xa; ('rf',&#xa;
       RandomForestClassifier(max_depth=8,&#xa; n_estimators=50, n_jobs=3,&#xa;
-      oob_score=True,&#xa; random_state=1,&#xa; warm_start=True)),&#xa;
-      (\'gnb\', GaussianNB())]))
+      oob_score=True,&#xa; random_state=1,&#xa; warm_start=True)),&#xa; ('gnb',
+      GaussianNB())]))
     </div>
   </body>
 </html>
