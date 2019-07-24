@@ -116,7 +116,7 @@
             <div class="sk-label-container">
               <div
                 class="sk-label"
-                sk-data-tooltip="ColumnTransformer(transformers=[(\'num\',&#xa;                                 Pipeline(steps=[(\'imputer\',&#xa;                                                  SimpleImputer(strategy=\'median\')),&#xa;                                                 (\'scaler\', StandardScaler())]),&#xa;                                 [\'age\', \'fare\']),&#xa;                                (\'cat\',&#xa;                                 Pipeline(steps=[(\'imputer\',&#xa;                                                  SimpleImputer(fill_value=\'missing\',&#xa;                                                                strategy=\'constant\')),&#xa;                                                 (\'onehot\',&#xa;                                                  OneHotEncoder(handle_unknown=\'ignore\'))]),&#xa;                                 [\'embarked\', \'sex\', \'pclass\'])])"
+                sk-data-tooltip="ColumnTransformer(transformers=[('num',&#xa;                                 Pipeline(steps=[('pass', 'passthrough'),&#xa;                                                 ('imputer',&#xa;                                                  SimpleImputer(strategy='median'))]),&#xa;                                 ['a', 'b', 'c', 'd', 'e']),&#xa;                                ('cat',&#xa;                                 Pipeline(steps=[('imputer',&#xa;                                                  SimpleImputer(missing_values='empty',&#xa;                                                                strategy='constant')),&#xa;                                                 ('one-hot', OneHotEncoder())]),&#xa;                                 [0, 1, 2, 3])])"
               >
                 preprocessor
               </div>
@@ -124,26 +124,26 @@
             <div class="sk-parallel">
               <div class="sk-parallel-item">
                 <div class="sk-label-container">
-                  <div class="sk-label" sk-data-tooltip="[\'age\', \'fare\']">
+                  <div
+                    class="sk-label"
+                    sk-data-tooltip="['a', 'b', 'c', 'd', 'e']"
+                  >
                     num
                   </div>
                 </div>
                 <div class="sk-serial">
                   <div class="sk-serial">
                     <div class="sk-serial-item">
-                      <div
-                        class="sk-estimator"
-                        sk-data-tooltip="SimpleImputer(strategy=\'median\')"
-                      >
-                        SimpleImputer
+                      <div class="sk-estimator" sk-data-tooltip="passthrough">
+                        passthrough
                       </div>
                     </div>
                     <div class="sk-serial-item">
                       <div
                         class="sk-estimator"
-                        sk-data-tooltip="StandardScaler()"
+                        sk-data-tooltip="SimpleImputer(strategy='median')"
                       >
-                        StandardScaler
+                        SimpleImputer
                       </div>
                     </div>
                   </div>
@@ -151,19 +151,14 @@
               </div>
               <div class="sk-parallel-item">
                 <div class="sk-label-container">
-                  <div
-                    class="sk-label"
-                    sk-data-tooltip="[\'embarked\', \'sex\', \'pclass\']"
-                  >
-                    cat
-                  </div>
+                  <div class="sk-label" sk-data-tooltip="[0, 1, 2, 3]">cat</div>
                 </div>
                 <div class="sk-serial">
                   <div class="sk-serial">
                     <div class="sk-serial-item">
                       <div
                         class="sk-estimator"
-                        sk-data-tooltip="SimpleImputer(fill_value=\'missing\', strategy=\'constant\')"
+                        sk-data-tooltip="SimpleImputer(missing_values='empty', strategy='constant')"
                       >
                         SimpleImputer
                       </div>
@@ -171,7 +166,7 @@
                     <div class="sk-serial-item">
                       <div
                         class="sk-estimator"
-                        sk-data-tooltip="OneHotEncoder(handle_unknown=\'ignore\')"
+                        sk-data-tooltip="OneHotEncoder()"
                       >
                         OneHotEncoder
                       </div>
@@ -181,9 +176,115 @@
               </div>
             </div>
           </div>
-          <div class="sk-serial-item">
-            <div class="sk-estimator" sk-data-tooltip="LogisticRegression()">
-              LogisticRegression
+          <div class="sk-serial-item sk-dashed-wrapped">
+            <div class="sk-label-container">
+              <div
+                class="sk-label"
+                sk-data-tooltip="FeatureUnion(transformer_list=[('pca', PCA(n_components=1)),&#xa;                               ('tsvd',&#xa;                                Pipeline(steps=[('first',&#xa;                                                 TruncatedSVD(n_components=3)),&#xa;                                                ('select',&#xa;                                                 SelectPercentile())]))])"
+              >
+                feat_u
+              </div>
+            </div>
+            <div class="sk-parallel">
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div class="sk-label" sk-data-tooltip="PCA(n_components=1)">
+                    pca
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div
+                      class="sk-estimator"
+                      sk-data-tooltip="PCA(n_components=1)"
+                    >
+                      PCA
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div
+                    class="sk-label"
+                    sk-data-tooltip="Pipeline(steps=[('first', TruncatedSVD(n_components=3)),&#xa;                ('select', SelectPercentile())])"
+                  >
+                    tsvd
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial">
+                    <div class="sk-serial-item">
+                      <div
+                        class="sk-estimator"
+                        sk-data-tooltip="TruncatedSVD(n_components=3)"
+                      >
+                        TruncatedSVD
+                      </div>
+                    </div>
+                    <div class="sk-serial-item">
+                      <div
+                        class="sk-estimator"
+                        sk-data-tooltip="SelectPercentile()"
+                      >
+                        SelectPercentile
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sk-serial-item sk-dashed-wrapped">
+            <div class="sk-label-container">
+              <div
+                class="sk-label"
+                sk-data-tooltip="VotingClassifier(estimators=[('lr', LogisticRegression(random_state=1)),&#xa;                             ('mlp', MLPClassifier(alpha=0.001))])"
+              >
+                classifier
+              </div>
+            </div>
+            <div class="sk-parallel">
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div
+                    class="sk-label"
+                    sk-data-tooltip="LogisticRegression(random_state=1)"
+                  >
+                    lr
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div
+                      class="sk-estimator"
+                      sk-data-tooltip="LogisticRegression(random_state=1)"
+                    >
+                      LogisticRegression
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div
+                    class="sk-label"
+                    sk-data-tooltip="MLPClassifier(alpha=0.001)"
+                  >
+                    mlp
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div
+                      class="sk-estimator"
+                      sk-data-tooltip="MLPClassifier(alpha=0.001)"
+                    >
+                      MLPClassifier
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
