@@ -34,6 +34,7 @@
       .sk-parallel {
         display: flex;
         align-items: stretch;
+        justify-content: center;
       }
       .sk-parallel-item {
         display: flex;
@@ -49,17 +50,21 @@
         align-self: flex-start;
         width: 50%;
       }
+      .sk-parallel-item:only-child::after {
+        width: 0;
+      }
       .sk-dashed-wrapped {
         border: 1px dashed gray;
-        padding: 0.25em;
+        padding: 0 0.25em 0.25em 0.25em;
       }
       .sk-label {
-        text-align: center;
+        min-width: 70%;
         font-family: monospace;
         font-weight: bold;
         background: white;
         display: inline-block;
-        text-decoration: underline;
+        margin: 0 0.5em;
+        line-height: 1.4em;
       }
       .sk-label-container {
         text-align: center;
@@ -103,7 +108,7 @@
       .sk-top-container {
         display: flex;
         color: black;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
       }
     </style>
   </head>
@@ -115,14 +120,174 @@
             <div class="sk-label-container">
               <div
                 class="sk-label"
-                sk-data-tooltip="OneVsOneClassifier(estimator=LinearSVC())"
+                sk-data-tooltip="ColumnTransformer(transformers=[('cat',&#xa;                                 Pipeline(steps=[('impute',&#xa;                                                  SimpleImputer(fill_value='missing',&#xa;                                                                strategy='constant')),&#xa;                                                 ('onehot',&#xa;                                                  OneHotEncoder(handle_unknown='ignore'))]),&#xa;                                 ['gender', 'age_bracket']),&#xa;                                ('num',&#xa;                                 Pipeline(steps=[('impute', SimpleImputer()),&#xa;                                                 ('scale', StandardScaler())]),&#xa;                                 ['age', 'income'])])"
               >
-                OneVsOneClassifier
+                preprocessor
               </div>
             </div>
-            <div class="sk-serial-item">
-              <div class="sk-estimator" sk-data-tooltip="LinearSVC()">
-                LinearSVC
+            <div class="sk-parallel">
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div
+                    class="sk-label"
+                    sk-data-tooltip="['gender', 'age_bracket']"
+                  >
+                    cat
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial">
+                    <div class="sk-serial-item">
+                      <div
+                        class="sk-estimator"
+                        sk-data-tooltip="SimpleImputer(fill_value='missing', strategy='constant')"
+                      >
+                        SimpleImputer
+                      </div>
+                    </div>
+                    <div class="sk-serial-item">
+                      <div
+                        class="sk-estimator"
+                        sk-data-tooltip="OneHotEncoder(handle_unknown='ignore')"
+                      >
+                        OneHotEncoder
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div class="sk-label" sk-data-tooltip="['age', 'income']">
+                    num
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial">
+                    <div class="sk-serial-item">
+                      <div
+                        class="sk-estimator"
+                        sk-data-tooltip="SimpleImputer()"
+                      >
+                        SimpleImputer
+                      </div>
+                    </div>
+                    <div class="sk-serial-item">
+                      <div
+                        class="sk-estimator"
+                        sk-data-tooltip="StandardScaler()"
+                      >
+                        StandardScaler
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sk-serial-item sk-dashed-wrapped">
+            <div class="sk-label-container">
+              <div
+                class="sk-label"
+                sk-data-tooltip="FeatureUnion(transformer_list=[('pca', PCA(n_components=1)),&#xa;                               ('svd', TruncatedSVD())])"
+              >
+                dim_reduce
+              </div>
+            </div>
+            <div class="sk-parallel">
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div class="sk-label" sk-data-tooltip="PCA(n_components=1)">
+                    pca
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div
+                      class="sk-estimator"
+                      sk-data-tooltip="PCA(n_components=1)"
+                    >
+                      PCA
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div class="sk-label" sk-data-tooltip="TruncatedSVD()">
+                    svd
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div class="sk-estimator" sk-data-tooltip="TruncatedSVD()">
+                      TruncatedSVD
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sk-serial-item sk-dashed-wrapped">
+            <div class="sk-label-container">
+              <div
+                class="sk-label"
+                sk-data-tooltip="VotingClassifier(estimators=[('rf', RandomForestClassifier()),&#xa;                             ('mlp', MLPClassifier()),&#xa;                             ('lr', LogisticRegression())])"
+              >
+                clf
+              </div>
+            </div>
+            <div class="sk-parallel">
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div
+                    class="sk-label"
+                    sk-data-tooltip="RandomForestClassifier()"
+                  >
+                    rf
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div
+                      class="sk-estimator"
+                      sk-data-tooltip="RandomForestClassifier()"
+                    >
+                      RandomForestClassifier
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div class="sk-label" sk-data-tooltip="MLPClassifier()">
+                    mlp
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div class="sk-estimator" sk-data-tooltip="MLPClassifier()">
+                      MLPClassifier
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sk-parallel-item">
+                <div class="sk-label-container">
+                  <div class="sk-label" sk-data-tooltip="LogisticRegression()">
+                    lr
+                  </div>
+                </div>
+                <div class="sk-serial">
+                  <div class="sk-serial-item">
+                    <div
+                      class="sk-estimator"
+                      sk-data-tooltip="LogisticRegression()"
+                    >
+                      LogisticRegression
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
