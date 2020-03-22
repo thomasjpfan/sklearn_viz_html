@@ -161,11 +161,8 @@
     }
 
     div.sk-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      display: inline-block;
       position: relative;
-      float: left;
     }
     body {
       font-size: 1.2em;
@@ -179,30 +176,47 @@
       <div class="sk-item sk-dashed-wrapped">
         <div class="sk-label-container">
           <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-              id="4c19c5b6-41b8-4770-aaeb-7f9be83f2b7d" type="checkbox"><label class="sk-toggleable__label"
-              for="4c19c5b6-41b8-4770-aaeb-7f9be83f2b7d">Pipeline</label>
+              id="a6801293-6a0e-44b1-ac4b-9066999cb7ee" type="checkbox"><label class="sk-toggleable__label"
+              for="a6801293-6a0e-44b1-ac4b-9066999cb7ee">Pipeline</label>
             <div class="sk-toggleable__content">
-              <pre>Pipeline(steps=[('preprocessor',
-                 ColumnTransformer(transformers=[('cat',
-                                                  Pipeline(steps=[('impute',
-                                                                   SimpleImputer(fill_value='missing',
-                                                                                 strategy='constant')),
-                                                                  ('onehot',
-                                                                   OneHotEncoder(handle_unknown='ignore'))]),
+              <pre>Pipeline(memory=None,
+         steps=[('preprocessor',
+                 ColumnTransformer(n_jobs=None, remainder='drop',
+                                   sparse_threshold=0.3,
+                                   transformer_weights=None,
+                                   transformers=[('cat',
+                                                  SimpleImputer(add_indicator=False,
+                                                                copy=True,
+                                                                fill_value=None,
+                                                                missing_values=nan,
+                                                                strategy='mean',
+                                                                verbose=0),
                                                   ['gender', 'age_bracket']),
                                                  ('num',
-                                                  Pipeline(steps=[('impute',
-                                                                   SimpleImputer()),
-                                                                  ('scale',
-                                                                   StandardScaler())]),
-                                                  ['age', 'income'])])),
-                ('dim_reduce',
-                 FeatureUnion(transformer_list=[('pca', PCA(n_components=1)),
-                                                ('svd', TruncatedSVD())])),
-                ('clf',
-                 VotingClassifier(estimators=[('rf', RandomForestClassifier()),
-                                              ('mlp', MLPClassifier()),
-                                              ('lr', LogisticRegression())]))])</pre>
+                                                  Pipeline(memory=None,
+                                                           steps=[('impute',
+                                                                   SimpleImputer(a...
+                                                                    solver='lbfgs',
+                                                                    tol=0.0001,
+                                                                    verbose=0,
+                                                                    warm_start=False)),
+                                                ('svc',
+                                                 LinearSVC(C=1.0,
+                                                           class_weight=None,
+                                                           dual=True,
+                                                           fit_intercept=True,
+                                                           intercept_scaling=1,
+                                                           loss='squared_hinge',
+                                                           max_iter=1000,
+                                                           multi_class='ovr',
+                                                           penalty='l2',
+                                                           random_state=None,
+                                                           tol=0.0001,
+                                                           verbose=0))],
+                                    final_estimator=None, n_jobs=None,
+                                    passthrough=False, stack_method='auto',
+                                    verbose=0))],
+         verbose=False)</pre>
             </div>
           </div>
         </div>
@@ -210,55 +224,55 @@
           <div class="sk-item sk-dashed-wrapped">
             <div class="sk-label-container">
               <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                  id="0755f744-f209-401e-b921-1dcc268dbadd" type="checkbox"><label class="sk-toggleable__label"
-                  for="0755f744-f209-401e-b921-1dcc268dbadd">preprocessor: ColumnTransformer</label>
+                  id="a16aa447-e7e1-4617-a3c9-9a53dbd5388a" type="checkbox"><label class="sk-toggleable__label"
+                  for="a16aa447-e7e1-4617-a3c9-9a53dbd5388a">preprocessor: ColumnTransformer</label>
                 <div class="sk-toggleable__content">
-                  <pre>ColumnTransformer(transformers=[('cat',
-                                 Pipeline(steps=[('impute',
-                                                  SimpleImputer(fill_value='missing',
-                                                                strategy='constant')),
-                                                 ('onehot',
-                                                  OneHotEncoder(handle_unknown='ignore'))]),
+                  <pre>ColumnTransformer(n_jobs=None, remainder='drop', sparse_threshold=0.3,
+                  transformer_weights=None,
+                  transformers=[('cat',
+                                 SimpleImputer(add_indicator=False, copy=True,
+                                               fill_value=None,
+                                               missing_values=nan,
+                                               strategy='mean', verbose=0),
                                  ['gender', 'age_bracket']),
                                 ('num',
-                                 Pipeline(steps=[('impute', SimpleImputer()),
-                                                 ('scale', StandardScaler())]),
-                                 ['age', 'income'])])</pre>
+                                 Pipeline(memory=None,
+                                          steps=[('impute',
+                                                  SimpleImputer(add_indicator=False,
+                                                                copy=True,
+                                                                fill_value=None,
+                                                                missing_values=nan,
+                                                                strategy='mean',
+                                                                verbose=0)),
+                                                 ('scale',
+                                                  StandardScaler(copy=True,
+                                                                 with_mean=True,
+                                                                 with_std=True))],
+                                          verbose=False),
+                                 ['age', 'income'])],
+                  verbose=False)</pre>
                 </div>
               </div>
             </div>
             <div class="sk-parallel">
               <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                      id="ce12d694-0c27-4def-9b12-7ba6485f080e" type="checkbox"><label class="sk-toggleable__label"
-                      for="ce12d694-0c27-4def-9b12-7ba6485f080e">cat</label>
-                    <div class="sk-toggleable__content">
-                      <pre>['gender', 'age_bracket']</pre>
+                <div class="sk-item">
+                  <div class="sk-label-container">
+                    <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
+                        id="de1ca569-c246-4c8c-a550-6e28c362d9f6" type="checkbox"><label class="sk-toggleable__label"
+                        for="de1ca569-c246-4c8c-a550-6e28c362d9f6">cat</label>
+                      <div class="sk-toggleable__content">
+                        <pre>['gender', 'age_bracket']</pre>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="sk-serial">
-                  <div class="sk-item">
-                    <div class="sk-serial">
-                      <div class="sk-item">
-                        <div class="sk-estimator sk-toggleable"><input
-                            class="sk-toggleable__control sk-hidden--visually" id="94cbf763-4365-4274-aa0d-b5cbd16b54ef"
-                            type="checkbox"><label class="sk-toggleable__label"
-                            for="94cbf763-4365-4274-aa0d-b5cbd16b54ef">SimpleImputer</label>
-                          <div class="sk-toggleable__content">
-                            <pre>SimpleImputer(fill_value='missing', strategy='constant')</pre>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="sk-item">
-                        <div class="sk-estimator sk-toggleable"><input
-                            class="sk-toggleable__control sk-hidden--visually" id="f58d85bb-da36-4e4e-82dc-d72cbdc2a927"
-                            type="checkbox"><label class="sk-toggleable__label"
-                            for="f58d85bb-da36-4e4e-82dc-d72cbdc2a927">OneHotEncoder</label>
-                          <div class="sk-toggleable__content">
-                            <pre>OneHotEncoder(handle_unknown='ignore')</pre>
-                          </div>
+                  <div class="sk-serial">
+                    <div class="sk-item">
+                      <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
+                          id="7714451b-061e-4ec4-a2f4-8602165294a5" type="checkbox"><label class="sk-toggleable__label"
+                          for="7714451b-061e-4ec4-a2f4-8602165294a5">SimpleImputer</label>
+                        <div class="sk-toggleable__content">
+                          <pre>SimpleImputer()</pre>
                         </div>
                       </div>
                     </div>
@@ -266,35 +280,39 @@
                 </div>
               </div>
               <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                      id="fd29c3de-144f-4ba2-8446-1f63168dc297" type="checkbox"><label class="sk-toggleable__label"
-                      for="fd29c3de-144f-4ba2-8446-1f63168dc297">num</label>
-                    <div class="sk-toggleable__content">
-                      <pre>['age', 'income']</pre>
+                <div class="sk-item">
+                  <div class="sk-label-container">
+                    <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
+                        id="a8e59877-fc3e-4047-8503-233edd9dad37" type="checkbox"><label class="sk-toggleable__label"
+                        for="a8e59877-fc3e-4047-8503-233edd9dad37">num</label>
+                      <div class="sk-toggleable__content">
+                        <pre>['age', 'income']</pre>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="sk-serial">
-                  <div class="sk-item">
-                    <div class="sk-serial">
-                      <div class="sk-item">
-                        <div class="sk-estimator sk-toggleable"><input
-                            class="sk-toggleable__control sk-hidden--visually" id="883ae9ac-f2b7-4a26-9525-9581849a254b"
-                            type="checkbox"><label class="sk-toggleable__label"
-                            for="883ae9ac-f2b7-4a26-9525-9581849a254b">SimpleImputer</label>
-                          <div class="sk-toggleable__content">
-                            <pre>SimpleImputer()</pre>
+                  <div class="sk-serial">
+                    <div class="sk-item">
+                      <div class="sk-serial">
+                        <div class="sk-item">
+                          <div class="sk-estimator sk-toggleable"><input
+                              class="sk-toggleable__control sk-hidden--visually"
+                              id="339bb089-7251-46bf-ae57-b067c46c28a7" type="checkbox"><label
+                              class="sk-toggleable__label"
+                              for="339bb089-7251-46bf-ae57-b067c46c28a7">SimpleImputer</label>
+                            <div class="sk-toggleable__content">
+                              <pre>SimpleImputer()</pre>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="sk-item">
-                        <div class="sk-estimator sk-toggleable"><input
-                            class="sk-toggleable__control sk-hidden--visually" id="149589a8-e3c8-49ba-816a-8a6f3b1e8464"
-                            type="checkbox"><label class="sk-toggleable__label"
-                            for="149589a8-e3c8-49ba-816a-8a6f3b1e8464">StandardScaler</label>
-                          <div class="sk-toggleable__content">
-                            <pre>StandardScaler()</pre>
+                        <div class="sk-item">
+                          <div class="sk-estimator sk-toggleable"><input
+                              class="sk-toggleable__control sk-hidden--visually"
+                              id="02703e6a-f204-4151-b47e-bfb865ba233d" type="checkbox"><label
+                              class="sk-toggleable__label"
+                              for="02703e6a-f204-4151-b47e-bfb865ba233d">StandardScaler</label>
+                            <div class="sk-toggleable__content">
+                              <pre>StandardScaler()</pre>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -307,42 +325,54 @@
           <div class="sk-item sk-dashed-wrapped">
             <div class="sk-label-container">
               <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                  id="f44cf0a2-ab4d-4034-9dd8-77d35ce064df" type="checkbox"><label class="sk-toggleable__label"
-                  for="f44cf0a2-ab4d-4034-9dd8-77d35ce064df">dim_reduce: FeatureUnion</label>
+                  id="afa284ad-28e7-485e-8f4c-9787107e6d86" type="checkbox"><label class="sk-toggleable__label"
+                  for="afa284ad-28e7-485e-8f4c-9787107e6d86">dim_reduce: FeatureUnion</label>
                 <div class="sk-toggleable__content">
-                  <pre>FeatureUnion(transformer_list=[('pca', PCA(n_components=1)),
-                               ('svd', TruncatedSVD())])</pre>
+                  <pre>FeatureUnion(n_jobs=None,
+             transformer_list=[('pca',
+                                PCA(copy=True, iterated_power='auto',
+                                    n_components=1, random_state=None,
+                                    svd_solver='auto', tol=0.0, whiten=False)),
+                               ('svd',
+                                TruncatedSVD(algorithm='randomized',
+                                             n_components=2, n_iter=5,
+                                             random_state=None, tol=0.0))],
+             transformer_weights=None, verbose=False)</pre>
                 </div>
               </div>
             </div>
             <div class="sk-parallel">
               <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><label>pca</label></div>
-                </div>
-                <div class="sk-serial">
-                  <div class="sk-item">
-                    <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                        id="27d651d1-0901-4799-be07-addb63d8ec41" type="checkbox"><label class="sk-toggleable__label"
-                        for="27d651d1-0901-4799-be07-addb63d8ec41">PCA</label>
-                      <div class="sk-toggleable__content">
-                        <pre>PCA(n_components=1)</pre>
+                <div class="sk-item">
+                  <div class="sk-label-container">
+                    <div class="sk-label sk-toggleable"><label>pca</label></div>
+                  </div>
+                  <div class="sk-serial">
+                    <div class="sk-item">
+                      <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
+                          id="b422357b-274b-4d64-940c-6df7573b6794" type="checkbox"><label class="sk-toggleable__label"
+                          for="b422357b-274b-4d64-940c-6df7573b6794">PCA</label>
+                        <div class="sk-toggleable__content">
+                          <pre>PCA(n_components=1)</pre>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><label>svd</label></div>
-                </div>
-                <div class="sk-serial">
-                  <div class="sk-item">
-                    <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                        id="ca235ff2-dc48-457f-94af-2bf1d57fe59f" type="checkbox"><label class="sk-toggleable__label"
-                        for="ca235ff2-dc48-457f-94af-2bf1d57fe59f">TruncatedSVD</label>
-                      <div class="sk-toggleable__content">
-                        <pre>TruncatedSVD()</pre>
+                <div class="sk-item">
+                  <div class="sk-label-container">
+                    <div class="sk-label sk-toggleable"><label>svd</label></div>
+                  </div>
+                  <div class="sk-serial">
+                    <div class="sk-item">
+                      <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
+                          id="7cbe76f6-1dbf-4023-afc5-d476f977e732" type="checkbox"><label class="sk-toggleable__label"
+                          for="7cbe76f6-1dbf-4023-afc5-d476f977e732">TruncatedSVD</label>
+                        <div class="sk-toggleable__content">
+                          <pre>TruncatedSVD()</pre>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -350,60 +380,98 @@
               </div>
             </div>
           </div>
+          <div class="sk-item">
+            <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
+                id="e9457cba-4398-405f-b8e7-85fd95442841" type="checkbox"><label class="sk-toggleable__label"
+                for="e9457cba-4398-405f-b8e7-85fd95442841">PCA</label>
+              <div class="sk-toggleable__content">
+                <pre>PCA()</pre>
+              </div>
+            </div>
+          </div>
           <div class="sk-item sk-dashed-wrapped">
             <div class="sk-label-container">
               <div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                  id="0bc7e4af-4c6d-4346-a2ea-72c689c6af1b" type="checkbox"><label class="sk-toggleable__label"
-                  for="0bc7e4af-4c6d-4346-a2ea-72c689c6af1b">clf: VotingClassifier</label>
+                  id="278e00eb-5186-44cb-a132-2bc22607a2bd" type="checkbox"><label class="sk-toggleable__label"
+                  for="278e00eb-5186-44cb-a132-2bc22607a2bd">stacker: StackingClassifier</label>
                 <div class="sk-toggleable__content">
-                  <pre>VotingClassifier(estimators=[('rf', RandomForestClassifier()),
-                             ('mlp', MLPClassifier()),
-                             ('lr', LogisticRegression())])</pre>
+                  <pre>StackingClassifier(cv=None,
+                   estimators=[('lr',
+                                LogisticRegression(C=1.0, class_weight=None,
+                                                   dual=False,
+                                                   fit_intercept=True,
+                                                   intercept_scaling=1,
+                                                   l1_ratio=None, max_iter=100,
+                                                   multi_class='auto',
+                                                   n_jobs=None, penalty='l2',
+                                                   random_state=None,
+                                                   solver='lbfgs', tol=0.0001,
+                                                   verbose=0,
+                                                   warm_start=False)),
+                               ('svc',
+                                LinearSVC(C=1.0, class_weight=None, dual=True,
+                                          fit_intercept=True,
+                                          intercept_scaling=1,
+                                          loss='squared_hinge', max_iter=1000,
+                                          multi_class='ovr', penalty='l2',
+                                          random_state=None, tol=0.0001,
+                                          verbose=0))],
+                   final_estimator=None, n_jobs=None, passthrough=False,
+                   stack_method='auto', verbose=0)</pre>
                 </div>
               </div>
             </div>
-            <div class="sk-parallel">
-              <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><label>rf</label></div>
-                </div>
+            <div class="sk-serial">
+              <div class="sk-item">
                 <div class="sk-serial">
                   <div class="sk-item">
-                    <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                        id="a5519b8d-90ec-4bea-8e39-ace17068a514" type="checkbox"><label class="sk-toggleable__label"
-                        for="a5519b8d-90ec-4bea-8e39-ace17068a514">RandomForestClassifier</label>
-                      <div class="sk-toggleable__content">
-                        <pre>RandomForestClassifier()</pre>
+                    <div class="sk-parallel">
+                      <div class="sk-parallel-item">
+                        <div class="sk-item">
+                          <div class="sk-label-container">
+                            <div class="sk-label sk-toggleable"><label>lr</label></div>
+                          </div>
+                          <div class="sk-serial">
+                            <div class="sk-item">
+                              <div class="sk-estimator sk-toggleable"><input
+                                  class="sk-toggleable__control sk-hidden--visually"
+                                  id="0cb4d2fc-0619-4af3-8f40-5db47fe01b3c" type="checkbox"><label
+                                  class="sk-toggleable__label"
+                                  for="0cb4d2fc-0619-4af3-8f40-5db47fe01b3c">LogisticRegression</label>
+                                <div class="sk-toggleable__content">
+                                  <pre>LogisticRegression()</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sk-parallel-item">
+                        <div class="sk-item">
+                          <div class="sk-label-container">
+                            <div class="sk-label sk-toggleable"><label>svc</label></div>
+                          </div>
+                          <div class="sk-serial">
+                            <div class="sk-item">
+                              <div class="sk-estimator sk-toggleable"><input
+                                  class="sk-toggleable__control sk-hidden--visually"
+                                  id="b243a6cc-5417-4327-b6f0-ca70674248ec" type="checkbox"><label
+                                  class="sk-toggleable__label"
+                                  for="b243a6cc-5417-4327-b6f0-ca70674248ec">LinearSVC</label>
+                                <div class="sk-toggleable__content">
+                                  <pre>LinearSVC()</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><label>mlp</label></div>
-                </div>
-                <div class="sk-serial">
                   <div class="sk-item">
                     <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                        id="5ea0dcc3-150c-4691-be20-449491c8dc80" type="checkbox"><label class="sk-toggleable__label"
-                        for="5ea0dcc3-150c-4691-be20-449491c8dc80">MLPClassifier</label>
-                      <div class="sk-toggleable__content">
-                        <pre>MLPClassifier()</pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="sk-parallel-item">
-                <div class="sk-label-container">
-                  <div class="sk-label sk-toggleable"><label>lr</label></div>
-                </div>
-                <div class="sk-serial">
-                  <div class="sk-item">
-                    <div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually"
-                        id="8690b23d-666e-436c-945c-898aad8bda06" type="checkbox"><label class="sk-toggleable__label"
-                        for="8690b23d-666e-436c-945c-898aad8bda06">LogisticRegression</label>
+                        id="40afd00f-f1ec-4815-8114-efdc6d1540f3" type="checkbox"><label class="sk-toggleable__label"
+                        for="40afd00f-f1ec-4815-8114-efdc6d1540f3">LogisticRegression</label>
                       <div class="sk-toggleable__content">
                         <pre>LogisticRegression()</pre>
                       </div>
