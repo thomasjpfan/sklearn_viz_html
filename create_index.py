@@ -30,4 +30,7 @@ clf = Pipeline(
 
 html_out = estimator_html_repr(clf)
 print(html_out)
-index_path.write_text(html_out)
+header = """<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8"/>\n"""
+index_path.write_text(header + html_out)
